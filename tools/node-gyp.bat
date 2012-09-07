@@ -26,16 +26,16 @@ set gypfile=
 if exist "module.gyp" set gypfile=module.gyp
 if not defined gypfile goto gyp-file-missing
 @rem Generate visual studio solution
-python %NODE_ROOT%\tools\gyp\gyp -f msvs -G msvs_version=2010 %gypfile% --depth=. -DNODE_ROOT=%NODE_ROOT% -Dnode_lib_folder=%node_lib_folder% -Dexpat_root=%EXPAT_ROOT%
+python %NODE_ROOT%\tools\gyp\gyp -f msvs -G msvs_version=2012 %gypfile% --depth=. -DNODE_ROOT=%NODE_ROOT% -Dnode_lib_folder=%node_lib_folder% -Dexpat_root=%EXPAT_ROOT%
 if errorlevel 1 goto exit-error
 if %requestedBuild% == 0 goto Finished
 @rem Build the solution
 @rem Check for visual studio tools if not already loaded
 if defined VCINSTALLDIR goto BuildSolution
 @rem Ensure that visual studio is available
-if not defined VS100COMNTOOLS goto msbuild-not-found
-if not exist "%VS100COMNTOOLS%..\..\vc\vcvarsall.bat" goto msbuild-not-found
-call "%VS100COMNTOOLS%..\..\vc\vcvarsall.bat"
+if not defined VS110COMNTOOLS goto msbuild-not-found
+if not exist "%VS110COMNTOOLS%..\..\vc\vcvarsall.bat" goto msbuild-not-found
+call "%VS110COMNTOOLS%..\..\vc\vcvarsall.bat"
 @rem Check that vs is properly loaded
 if not defined VCINSTALLDIR goto msbuild-not-found
 :BuildSolution
