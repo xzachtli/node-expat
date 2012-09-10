@@ -18,4 +18,5 @@
 ,"contributors": ["Stephan Maka", "Derek Hammer", "Iein Valdez", "Peter Körner", "Camilo Aguilar", "Michael Weibel", "Alexey Zhuchkov", "Satyam Shekhar", "Dhruv Matani", "Andreas Botsikas", "Tom Hughes-Croucher", "Nathan Rajlich"]
 ,"licenses": [{ "type": "MIT" }]
 ,"engines": { "node": ">=0.4" }
+,"msvs": { "version": "2012" }
 }
